@@ -1,0 +1,41 @@
+{% extends "theme::layouts/default" %}
+
+{% block content %}
+
+    <div class="inner">
+        <div class="container-fluid">
+            <div class="panel">
+                <div class="panel-body">
+
+                    {{ form_open({url: '/admin/migrator/migrate_column/migrate'}) }}
+
+                        <h2>Migrate a column of file ID's</h2>
+                        <div style="padding-bottom: 30px;">
+
+                            <select name="table" id="table-listing">
+                                <option>Select a table</option>
+                                {% for value in tables %}
+
+                                    <option>{{ value }}</option>
+
+                                {%  endfor %}
+                            </select>
+
+                            <div id="column-container" class="hidden">
+                                <select name="column" id="column-listing"></select>
+                            </div>
+
+                        </div>
+
+                        <div id="submit-container" class="hidden">
+                            <input class="btn btn-primary" type="submit" value="Begin Migration" disabled>
+                        </div>
+
+                    {{ form_close() }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

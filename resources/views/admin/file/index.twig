@@ -1,0 +1,25 @@
+{% extends "theme::layouts/default" %}
+
+{% block content %}
+
+    <div class="inner">
+        <div class="container-fluid">
+            <div class="panel">
+                <div class="panel-body">
+
+                    {% if(baseUrl) %}
+
+                        Found {{ count(files) }} files to migrate from <strong>{{ baseUrl }}</strong> to disk "<strong>{{ disk.name }}</strong>".
+
+                    {% else %}
+
+                        No base url was found. Please set your base URL in settings.
+
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
